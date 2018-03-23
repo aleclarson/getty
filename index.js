@@ -1,4 +1,3 @@
-
 const noop = require('noop')
 
 const d = Object.defineProperty
