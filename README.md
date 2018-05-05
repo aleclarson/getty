@@ -2,25 +2,43 @@
 # getty v0.0.1
 
 ```js
-const {getty, setty, petty} = require('getty')
+import {getty, setty, proto} from 'getty'
 
+// Constructor
 function Pokemon() {}
 
-// Prototype.
-petty(Pokemon, {
+// Prototype
+proto(Pokemon, {
   attack() {},
   defend() {},
 })
 
-// Property getters.
+// Property getters
 getty(Pokemon, {
   health() {},
   mana() {},
 })
 
-// Property setters.
+// Property setters
 setty(Pokemon, {
   health() {},
   mana() {},
 })
+```
+
+You can use `getty` and `setty` on any object.
+
+```js
+let o = {}
+
+getty(o, {
+  foo: () => 1
+})
+setty(o, {
+  foo(x) {this._foo = x}
+})
+
+o.foo     // => 1
+o.foo = 2
+o._foo    // => 2
 ```
