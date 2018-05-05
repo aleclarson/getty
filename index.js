@@ -36,7 +36,7 @@ export function setty(ctr, values) {
   }
 }
 
-export function petty(ctr, values) {
+export function proto(ctr, values) {
   values.constructor = ctr
   ctr.prototype = values
 }
