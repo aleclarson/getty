@@ -4,7 +4,10 @@ const d = Object.defineProperty
 const gd = Object.getOwnPropertyDescriptor
 
 export function getty(ctr, values) {
-  const p = ctr.prototype
+  let o = ctr.prototype
+  if (o.constructor !== ctr) {
+    o = ctr
+  }
   const des = {
     get: null,
     set: unwritable,
@@ -12,12 +15,15 @@ export function getty(ctr, values) {
   }
   for (let key in values) {
     des.get = values[key]
-    d(p, key, des)
+    d(o, key, des)
   }
 }
 
 export function setty(ctr, values) {
-  const p = ctr.prototype
+  const o = ctr.prototype
+  if (o.constructor !== ctr) {
+    o = ctr
+  }
   const des = {
     get: null,
     set: null,
@@ -26,7 +32,7 @@ export function setty(ctr, values) {
   for (let key in values) {
     des.get = gd(ctr, key).get || noop
     des.set = values[key]
-    d(p, key, des)
+    d(o, key, des)
   }
 }
 
