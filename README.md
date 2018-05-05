@@ -1,5 +1,5 @@
 
-# getty v0.0.1
+# getty v1.0.0
 
 ```js
 import {getty, setty, proto} from 'getty'

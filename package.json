@@ -1,6 +1,6 @@
 {
   "name": "getty",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "noop": "aleclarson/noop#0.0.1"
   }
