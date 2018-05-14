@@ -3,7 +3,7 @@ const noop = require('noop')
 const d = Object.defineProperty
 const gd = Object.getOwnPropertyDescriptor
 
-export function getty(ctr, values) {
+function getty(ctr, values) {
   let o = ctr.prototype
   if (o.constructor !== ctr) {
     o = ctr
@@ -19,7 +19,7 @@ export function getty(ctr, values) {
   }
 }
 
-export function setty(ctr, values) {
+function setty(ctr, values) {
   const o = ctr.prototype
   if (o.constructor !== ctr) {
     o = ctr
@@ -36,7 +36,7 @@ export function setty(ctr, values) {
   }
 }
 
-export function proto(ctr, values) {
+function proto(ctr, values) {
   values.constructor = ctr
   ctr.prototype = values
 }
@@ -44,3 +44,5 @@ export function proto(ctr, values) {
 function unwritable() {
   throw Error('Property is not writable')
 }
+
+module.exports = {getty, setty, proto}
